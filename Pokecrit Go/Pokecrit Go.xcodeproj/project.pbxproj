@@ -8,22 +8,24 @@
 
 /* Begin PBXBuildFile section */
 		6CF355581EBD4DBB0014AAE4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CF355571EBD4DBB0014AAE4 /* AppDelegate.swift */; };
-		6CF3555A1EBD4DBB0014AAE4 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CF355591EBD4DBB0014AAE4 /* ViewController.swift */; };
 		6CF3555D1EBD4DBB0014AAE4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6CF3555B1EBD4DBB0014AAE4 /* Main.storyboard */; };
 		6CF355601EBD4DBC0014AAE4 /* Pokecrit_Go.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 6CF3555E1EBD4DBC0014AAE4 /* Pokecrit_Go.xcdatamodeld */; };
 		6CF355621EBD4DBC0014AAE4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6CF355611EBD4DBC0014AAE4 /* Assets.xcassets */; };
 		6CF355651EBD4DBC0014AAE4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6CF355631EBD4DBC0014AAE4 /* LaunchScreen.storyboard */; };
+		6CF3556E1EC164710014AAE4 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6CF3556D1EC164710014AAE4 /* MapKit.framework */; };
+		6CF355701EC166D20014AAE4 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CF3556F1EC166D20014AAE4 /* MapViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		6CF355541EBD4DBB0014AAE4 /* Pokecrit Go.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Pokecrit Go.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6CF355571EBD4DBB0014AAE4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		6CF355591EBD4DBB0014AAE4 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		6CF3555C1EBD4DBB0014AAE4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		6CF3555F1EBD4DBC0014AAE4 /* Pokecrit_Go.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Pokecrit_Go.xcdatamodel; sourceTree = "<group>"; };
 		6CF355611EBD4DBC0014AAE4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		6CF355641EBD4DBC0014AAE4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		6CF355661EBD4DBC0014AAE4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		6CF3556D1EC164710014AAE4 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		6CF3556F1EC166D20014AAE4 /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MapViewController.swift; path = Controllers/MapViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,6 +33,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6CF3556E1EC164710014AAE4 /* MapKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -42,6 +45,7 @@
 			children = (
 				6CF355561EBD4DBB0014AAE4 /* Pokecrit Go */,
 				6CF355551EBD4DBB0014AAE4 /* Products */,
+				6CF3556C1EC164700014AAE4 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -57,7 +61,7 @@
 			isa = PBXGroup;
 			children = (
 				6CF355571EBD4DBB0014AAE4 /* AppDelegate.swift */,
-				6CF355591EBD4DBB0014AAE4 /* ViewController.swift */,
+				6CF3556F1EC166D20014AAE4 /* MapViewController.swift */,
 				6CF3555B1EBD4DBB0014AAE4 /* Main.storyboard */,
 				6CF355611EBD4DBC0014AAE4 /* Assets.xcassets */,
 				6CF355631EBD4DBC0014AAE4 /* LaunchScreen.storyboard */,
@@ -65,6 +69,14 @@
 				6CF3555E1EBD4DBC0014AAE4 /* Pokecrit_Go.xcdatamodeld */,
 			);
 			path = "Pokecrit Go";
+			sourceTree = "<group>";
+		};
+		6CF3556C1EC164700014AAE4 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				6CF3556D1EC164710014AAE4 /* MapKit.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -140,8 +152,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				6CF355601EBD4DBC0014AAE4 /* Pokecrit_Go.xcdatamodeld in Sources */,
-				6CF3555A1EBD4DBB0014AAE4 /* ViewController.swift in Sources */,
 				6CF355581EBD4DBB0014AAE4 /* AppDelegate.swift in Sources */,
+				6CF355701EC166D20014AAE4 /* MapViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -303,6 +315,7 @@
 				6CF3556B1EBD4DBC0014AAE4 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
