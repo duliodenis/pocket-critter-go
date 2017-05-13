@@ -21,16 +21,26 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="677-cT-K7e">
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="677-cT-K7e">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </mapView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BGe-dm-Rr7">
+                                <rect key="frame" x="309" y="597" width="50" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="JgP-yx-o9p"/>
+                                    <constraint firstAttribute="width" constant="50" id="liq-tq-55a"/>
+                                </constraints>
+                                <state key="normal" image="navigation"/>
+                                <connections>
+                                    <action selector="updateLocation:" destination="BYZ-38-t0r" eventType="touchUpInside" id="W9m-dv-MZd"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstAttribute="trailing" secondItem="677-cT-K7e" secondAttribute="trailing" id="3sg-9W-dLd"/>
-                            <constraint firstItem="677-cT-K7e" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="-20" id="4Yf-ag-OIr"/>
-                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="677-cT-K7e" secondAttribute="bottom" id="9Iz-Ko-IkJ"/>
-                            <constraint firstItem="677-cT-K7e" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="K5J-Ax-Inl"/>
+                            <constraint firstAttribute="trailing" secondItem="BGe-dm-Rr7" secondAttribute="trailing" constant="16" id="MbW-a0-JiY"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="BGe-dm-Rr7" secondAttribute="bottom" constant="20" id="wMZ-Fk-4tn"/>
                         </constraints>
                     </view>
                     <connections>
@@ -42,4 +52,7 @@
             <point key="canvasLocation" x="32.799999999999997" y="37.331334332833585"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="navigation" width="512" height="512"/>
+    </resources>
 </document>
