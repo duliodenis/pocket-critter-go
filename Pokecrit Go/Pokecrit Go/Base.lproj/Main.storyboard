@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -36,11 +37,33 @@
                                     <action selector="updateLocation:" destination="BYZ-38-t0r" eventType="touchUpInside" id="W9m-dv-MZd"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MMg-rL-L84">
+                                <rect key="frame" x="16" y="20" width="50" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="50" id="8J4-42-C3s"/>
+                                    <constraint firstAttribute="height" constant="50" id="KKG-Cx-ep7"/>
+                                </constraints>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6ld-q5-GPn">
+                                <rect key="frame" x="309" y="25" width="50" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="50" id="Pqu-YL-gGa"/>
+                                    <constraint firstAttribute="height" constant="50" id="bF5-WF-frP"/>
+                                </constraints>
+                                <state key="normal" image="backpack"/>
+                                <connections>
+                                    <segue destination="XT5-Sd-Fqn" kind="presentation" id="4gZ-DA-U1m"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="MMg-rL-L84" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="76X-hs-4Av"/>
+                            <constraint firstItem="6ld-q5-GPn" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="5" id="Evm-h7-fKp"/>
                             <constraint firstAttribute="trailing" secondItem="BGe-dm-Rr7" secondAttribute="trailing" constant="16" id="MbW-a0-JiY"/>
+                            <constraint firstItem="6ld-q5-GPn" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="mbO-sz-P2j"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="BGe-dm-Rr7" secondAttribute="bottom" constant="20" id="wMZ-Fk-4tn"/>
+                            <constraint firstItem="MMg-rL-L84" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="wcX-VQ-eNi"/>
                         </constraints>
                     </view>
                     <connections>
@@ -51,8 +74,53 @@
             </objects>
             <point key="canvasLocation" x="32.799999999999997" y="37.331334332833585"/>
         </scene>
+        <!--Backpack View Controller-->
+        <scene sceneID="4eD-qS-xYa">
+            <objects>
+                <viewController id="XT5-Sd-Fqn" customClass="BackpackViewController" customModule="Pokecrit_Go" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="5M4-Qf-sDy"/>
+                        <viewControllerLayoutGuide type="bottom" id="wRl-gM-Doa"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="b38-RQ-Yug">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="j6c-1v-AvT">
+                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yj5-Cx-HLB">
+                                <rect key="frame" x="163" y="617" width="50" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="50" id="eF5-QO-dU1"/>
+                                    <constraint firstAttribute="height" constant="50" id="ysZ-MT-4fh"/>
+                                </constraints>
+                                <state key="normal" image="map"/>
+                                <connections>
+                                    <action selector="dismiss:" destination="XT5-Sd-Fqn" eventType="touchUpInside" id="jkD-fp-gSz"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="j6c-1v-AvT" firstAttribute="top" secondItem="5M4-Qf-sDy" secondAttribute="bottom" id="AhN-2T-PpG"/>
+                            <constraint firstItem="j6c-1v-AvT" firstAttribute="leading" secondItem="b38-RQ-Yug" secondAttribute="leading" id="SaB-LL-bAj"/>
+                            <constraint firstItem="yj5-Cx-HLB" firstAttribute="centerX" secondItem="b38-RQ-Yug" secondAttribute="centerX" id="TXE-5K-RHX"/>
+                            <constraint firstItem="wRl-gM-Doa" firstAttribute="top" secondItem="j6c-1v-AvT" secondAttribute="bottom" id="WhD-vD-PAa"/>
+                            <constraint firstItem="wRl-gM-Doa" firstAttribute="top" secondItem="yj5-Cx-HLB" secondAttribute="bottom" id="aXh-5J-MZC"/>
+                            <constraint firstAttribute="trailing" secondItem="j6c-1v-AvT" secondAttribute="trailing" id="yWx-nE-OWu"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Dwt-0g-Nrx" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="806" y="37"/>
+        </scene>
     </scenes>
     <resources>
+        <image name="backpack" width="512" height="512"/>
+        <image name="map" width="512" height="512"/>
         <image name="navigation" width="512" height="512"/>
     </resources>
 </document>
