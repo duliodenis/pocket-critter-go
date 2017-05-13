@@ -25,6 +25,18 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
         if CLLocationManager.authorizationStatus() == .authorizedWhenInUse {
             mapView.showsUserLocation = true
             locationManager.startUpdatingLocation()
+            
+            // start a timer for the critter spawn
+            Timer.scheduledTimer(withTimeInterval: 5, repeats: true, block: { (timer) in
+                if let coordinate = self.locationManager.location?.coordinate {
+                    let annotation = MKPointAnnotation()
+                    annotation.coordinate = coordinate
+                    // Randomize the location of spawn
+                    annotation.coordinate.latitude  += (Double(arc4random_uniform(1000)) - 500) / 300000.0
+                    annotation.coordinate.longitude += (Double(arc4random_uniform(1000)) - 500) / 300000.0
+                    self.mapView.addAnnotation(annotation)
+                }
+            })
         } else {
             // otherwise request it
             locationManager.requestWhenInUseAuthorization()
