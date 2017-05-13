@@ -16,10 +16,14 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
     var locationManager = CLLocationManager()
     var numberOfUpdates = 0
     
+    var pokecrits: [Pokecrit] = []
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         locationManager.delegate = self
+        
+        pokecrits = getAllPokecrits()
         
         // if we are authorized to show location - display it
         if CLLocationManager.authorizationStatus() == .authorizedWhenInUse {
