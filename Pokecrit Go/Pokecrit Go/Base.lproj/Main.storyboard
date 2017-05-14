@@ -86,12 +86,22 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="j6c-1v-AvT">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="70" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="j6c-1v-AvT">
                                 <rect key="frame" x="0.0" y="20" width="375" height="647"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="PokecritCell" rowHeight="70" id="hrf-Fo-ewg">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="70"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="hrf-Fo-ewg" id="JXm-of-sVG">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="70"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
                             </tableView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yj5-Cx-HLB">
-                                <rect key="frame" x="163" y="617" width="50" height="50"/>
+                                <rect key="frame" x="309" y="597" width="50" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="50" id="eF5-QO-dU1"/>
                                     <constraint firstAttribute="height" constant="50" id="ysZ-MT-4fh"/>
@@ -106,16 +116,19 @@
                         <constraints>
                             <constraint firstItem="j6c-1v-AvT" firstAttribute="top" secondItem="5M4-Qf-sDy" secondAttribute="bottom" id="AhN-2T-PpG"/>
                             <constraint firstItem="j6c-1v-AvT" firstAttribute="leading" secondItem="b38-RQ-Yug" secondAttribute="leading" id="SaB-LL-bAj"/>
-                            <constraint firstItem="yj5-Cx-HLB" firstAttribute="centerX" secondItem="b38-RQ-Yug" secondAttribute="centerX" id="TXE-5K-RHX"/>
                             <constraint firstItem="wRl-gM-Doa" firstAttribute="top" secondItem="j6c-1v-AvT" secondAttribute="bottom" id="WhD-vD-PAa"/>
-                            <constraint firstItem="wRl-gM-Doa" firstAttribute="top" secondItem="yj5-Cx-HLB" secondAttribute="bottom" id="aXh-5J-MZC"/>
+                            <constraint firstItem="wRl-gM-Doa" firstAttribute="top" secondItem="yj5-Cx-HLB" secondAttribute="bottom" constant="20" id="aXh-5J-MZC"/>
+                            <constraint firstAttribute="trailing" secondItem="yj5-Cx-HLB" secondAttribute="trailing" constant="16" id="mph-Oo-LYs"/>
                             <constraint firstAttribute="trailing" secondItem="j6c-1v-AvT" secondAttribute="trailing" id="yWx-nE-OWu"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="tableView" destination="j6c-1v-AvT" id="dya-pZ-sbO"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Dwt-0g-Nrx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="806" y="37"/>
+            <point key="canvasLocation" x="805.60000000000002" y="36.431784107946029"/>
         </scene>
     </scenes>
     <resources>

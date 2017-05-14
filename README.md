@@ -1,7 +1,7 @@
 # Pokecrit Go
 Pocket Critter Go is a Pokemon Go Clone written for iOS 10 in Swift 3 that utilizes Map Views, Annotations, Core Data, and SpriteKit.
 
-![](art/screenshot/pokecrit-go-02.gif?raw=true)
+![](art/screenshot/pokecrit-go-03.gif?raw=true)
 
 ### Contributing
 See [CONTRIBUTING](CONTRIBUTING.md).
