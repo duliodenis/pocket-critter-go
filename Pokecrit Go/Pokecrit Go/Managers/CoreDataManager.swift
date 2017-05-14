@@ -50,3 +50,25 @@ func getAllPokecrits() -> [Pokecrit] {
     
     return []
 }
+
+
+func getCapturedPokecrits(captured: Bool) -> [Pokecrit] {
+    let context = AppDelegate.viewContext
+    
+    let fetchRequest = Pokecrit.fetchRequest() as NSFetchRequest
+    
+    if captured { // fetch all captured pokecrits where captured greater than zero
+        fetchRequest.predicate = NSPredicate(format: "timesCaptured > %d", 0)
+    } else {      // else return uncaught pokecrits where captured is zero
+        fetchRequest.predicate = NSPredicate(format: "timesCaptured == %d", 0)
+    }
+    
+    do {
+        let pokecrits = try context.fetch(fetchRequest) as [Pokecrit]
+        return pokecrits
+    } catch {
+        print("Error obtaining Pokecrits from Core Data.")
+    }
+    
+    return []
+}
