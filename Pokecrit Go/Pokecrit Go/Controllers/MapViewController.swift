@@ -22,6 +22,7 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         locationManager.delegate = self
+        mapView.delegate = self
         
         pokecrits = getAllPokecrits()
         
@@ -33,8 +34,9 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
             // start a timer for the critter spawn
             Timer.scheduledTimer(withTimeInterval: 5, repeats: true, block: { (timer) in
                 if let coordinate = self.locationManager.location?.coordinate {
-                    let annotation = MKPointAnnotation()
-                    annotation.coordinate = coordinate
+                    let randomPokecrit = self.pokecrits[Int(arc4random_uniform(UInt32(self.pokecrits.count)))]
+                    let annotation = PokecritAnnotation(coordinate: coordinate, pokecrit: randomPokecrit)
+
                     // Randomize the location of spawn
                     annotation.coordinate.latitude  += (Double(arc4random_uniform(1000)) - 500) / 300000.0
                     annotation.coordinate.longitude += (Double(arc4random_uniform(1000)) - 500) / 300000.0
@@ -73,4 +75,27 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
         mapView.setRegion(region, animated: true)
     }
 
+}
+
+
+extension MapViewController: MKMapViewDelegate {
+    
+    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
+        let annotationView = MKAnnotationView(annotation: annotation, reuseIdentifier: nil)
+        
+        if annotation is MKUserLocation {
+            annotationView.image = UIImage(named: "pin")
+        } else {
+            let pokecrit = (annotation as! PokecritAnnotation).pokecrit
+            annotationView.image = UIImage(named: pokecrit.imageURL!)
+        }
+        
+        var newFrame = annotationView.frame
+        newFrame.size.height = 40
+        newFrame.size.width = 40
+        annotationView.frame = newFrame
+        
+        return annotationView
+    }
+    
 }
