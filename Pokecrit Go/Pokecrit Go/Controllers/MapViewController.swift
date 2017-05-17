@@ -10,7 +10,7 @@ import UIKit
 import MapKit
 
 
-class MapViewController: UIViewController, CLLocationManagerDelegate {
+class MapViewController: UIViewController {
 
     @IBOutlet weak var mapView: MKMapView!
     var locationManager = CLLocationManager()
@@ -55,9 +55,13 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
     @IBAction func updateLocation(_ sender: Any) {
         updateMap()
     }
-    
-    
-    // MARK: - Location Manager Delegate Method
+
+}
+
+
+// MARK: - Location Manager Delegate Method
+
+extension MapViewController: CLLocationManagerDelegate {
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         // update 4 times and then halt until requested to update
@@ -69,16 +73,41 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
         }
     }
     
+}
+
+
+// MARK: - Map View Delegate Methods
+
+extension MapViewController: MKMapViewDelegate {
     
     func updateMap() {
         let region = MKCoordinateRegionMakeWithDistance(locationManager.location!.coordinate, 400, 400)
         mapView.setRegion(region, animated: true)
     }
-
-}
-
-
-extension MapViewController: MKMapViewDelegate {
+    
+    
+    func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
+        mapView.deselectAnnotation(view.annotation, animated: true)
+        
+        // ignore the user
+        if view.annotation! is MKUserLocation {
+            return
+        }
+        
+        // establish a tighter capture region
+        let region = MKCoordinateRegionMakeWithDistance(view.annotation!.coordinate, 150, 150)
+        mapView.setRegion(region, animated: false)
+        
+        if let coordinate = locationManager.location?.coordinate {
+            let ann = view.annotation as! PokecritAnnotation
+            if MKMapRectContainsPoint(mapView.visibleMapRect, MKMapPointForCoordinate(coordinate)) {
+                print("Capture \(ann.pokecrit.name!).")
+            } else {
+                print("Too far to capture \(ann.pokecrit.name!).")
+            }
+        }
+    }
+    
     
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
         let annotationView = MKAnnotationView(annotation: annotation, reuseIdentifier: nil)
