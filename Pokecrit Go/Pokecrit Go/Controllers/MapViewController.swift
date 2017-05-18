@@ -102,6 +102,9 @@ extension MapViewController: MKMapViewDelegate {
             let ann = view.annotation as! PokecritAnnotation
             if MKMapRectContainsPoint(mapView.visibleMapRect, MKMapPointForCoordinate(coordinate)) {
                 print("Capture \(ann.pokecrit.name!).")
+                let battle = BattleViewController()
+                battle.pokecrit = ann.pokecrit
+                present(battle, animated: true)
             } else {
                 print("Too far to capture \(ann.pokecrit.name!).")
             }
